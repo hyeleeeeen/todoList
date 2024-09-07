@@ -3,8 +3,8 @@ import "./globals.css";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "my todoList",
-  description: "my todoList",
+  title: "Hello, It is TodoList !",
+  description: "My todoList",
 };
 
 interface LayoutProps {
@@ -14,7 +14,7 @@ interface LayoutProps {
 
 export default function RootLayout({
   children,
-  modal, // modal prop 추가
+  modal,
 }: LayoutProps) {
   return (
     <html lang="en">
