@@ -1,0 +1,55 @@
+.todoBox {
+  font-size: 2rem;
+  width: 1100px;
+  border-bottom: 5.5px dotted rgb(201, 201, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.completedBox {
+    font-size: 2rem;
+    width: 1100px;
+    border-bottom: 5.5px dotted rgb(201, 201, 201);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.contentBox {
+    min-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 1;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+.contentBox:hover {
+    opacity: 0.6;
+}
+
+.content {
+    min-width: 500px;
+}
+
+.date {
+    font-size: 1.2rem;
+}
+
+.deleteBtn {
+    border:none;
+    opacity: 1;
+    width: 40px;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    opacity: 0.7;
+}
