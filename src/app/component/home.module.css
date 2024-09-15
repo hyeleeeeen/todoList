@@ -5,12 +5,6 @@
   align-items: center;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 30px;
-  }
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -50,9 +44,16 @@
   background-color: #fe7600;
   color: white;
   opacity: 1;
-  margin-top: 10px;
+  margin: 5px 0;
 }
 
 .link:hover {
   opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 30px;
+    height: 700px;
+  }
 }
