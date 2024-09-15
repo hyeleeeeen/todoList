@@ -69,7 +69,6 @@
   margin-bottom: 5px;
   font-weight: 500;
 }
-
 .textarea {
   width: 300px;
   min-height: 50px;
@@ -79,6 +78,7 @@
   border-radius: 10px;
   color: rgb(89, 89, 89);
   cursor: pointer;
+  padding-top: 6px;
 }
 
 .textarea:focus {
@@ -132,12 +132,13 @@
   display: flex;
   justify-content: space-between;
   width: 300px;
+  align-items: baseline;
 }
 
 .addBtn {
   border: none;
   height: 40px;
-  width: 150px;
+  width: 140px;
   margin-top: 30px;
   background-color: rgb(254, 118, 0);
   color: rgb(255, 255, 219);
@@ -154,7 +155,7 @@
 .resetBtn {
   background-color: rgb(255, 255, 219);
   height: 40px;
-  width: 110px;
+  width: 100px;
   margin-top: 30px;
   color: rgb(254, 118, 0);
   font-size: 1.5rem;
@@ -166,4 +167,25 @@
 
 .resetBtn:hover {
   opacity: 0.7;
+}
+
+.speakIcon {
+  font-size: 1.9rem;
+  color: rgb(60, 60, 178);
+  cursor: pointer;
+  opacity: 1;
+  position: relative;
+  top: 6px;
+}
+
+.speakIcon:hover {
+  opacity: 0.7;
+}
+
+.listeningIcon {
+  font-size: 1.9rem;
+  color: rgb(255, 28, 28);
+  cursor: pointer;
+  position: relative;
+  top: 6px;
 }
