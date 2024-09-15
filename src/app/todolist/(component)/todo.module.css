@@ -87,8 +87,17 @@
 @media (max-width: 850px) {
   .todoBox {
     font-size: 1.1rem;
+    margin-left: 30px;
+    width: 80%;
   }
   .date {
     font-size: 0.8rem;
+  }
+  .content {
+    width: 60%;
+  }
+  .deleteBtn {
+    position: relative;
+    top: 10px;
   }
 }
