@@ -87,13 +87,12 @@
 @media (max-width: 850px) {
   .todoBox {
     font-size: 1.1rem;
-    margin-left: 30px;
-    width: 80%;
+    width: 280px;
   }
 
   .completedBox {
-    margin-left: 30px;
-    width: 80%;
+    font-size: 1.1rem;
+    width: 280px;
   }
   .date {
     font-size: 0.8rem;
