@@ -138,7 +138,7 @@
 .addBtn {
   border: none;
   height: 40px;
-  width: 140px;
+  width: 50%;
   margin-top: 30px;
   background-color: rgb(254, 118, 0);
   color: rgb(255, 255, 219);
@@ -155,7 +155,7 @@
 .resetBtn {
   background-color: rgb(255, 255, 219);
   height: 40px;
-  width: 100px;
+  width: 35%;
   margin-top: 30px;
   color: rgb(254, 118, 0);
   font-size: 1.5rem;
@@ -188,4 +188,12 @@
   cursor: pointer;
   position: relative;
   top: 6px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 80%;
+    min-width: 70%;
+    max-height: 400px;
+  }
 }
