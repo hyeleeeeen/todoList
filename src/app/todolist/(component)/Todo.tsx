@@ -3,6 +3,7 @@
 import useTodoStore from "@/store/formdata";
 import style from "./todo.module.css";
 import type { Todo } from "@/model/store";
+import { FaTrashCan } from "react-icons/fa6";
 
 interface Props {
   todoList: Todo[];
@@ -28,7 +29,7 @@ export default function Todo({ todoList }: Props) {
   });
 
   return (
-    <ul>
+    <ul className={style.container}>
       {sortedTodoList.map((todo) => (
         <li
           key={todo.id}
@@ -45,7 +46,7 @@ export default function Todo({ todoList }: Props) {
               onClick={() => removeTodo(todo.id)}
               className={style.deleteBtn}
             >
-              삭제
+              <FaTrashCan />
             </button>
           </div>
         </li>
