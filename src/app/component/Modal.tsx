@@ -81,17 +81,16 @@ export default function AddTodoModal() {
         <form onSubmit={onSubmit} className={style.form}>
           <div className={style.input}>
             <label htmlFor="todo">할일 추가하기</label>
-            <div className={style.gg}>
-              <ReactTextareaAutosize
-                onChange={onChange}
-                value={content}
-                name="todo"
-                id="todo"
-                className={style.textarea}
-                maxLength={30}
-                required
-              />
-            </div>
+
+            <ReactTextareaAutosize
+              onChange={onChange}
+              value={content}
+              name="todo"
+              id="todo"
+              className={style.textarea}
+              maxLength={30}
+              required
+            />
           </div>
           <div className={style.date}>
             <label htmlFor="date">마감 날짜</label>

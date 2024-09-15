@@ -196,30 +196,32 @@
     min-width: 70%;
     max-height: 400px;
   }
-
   .input {
     width: 230px;
+    margin-left: 35px;
   }
   .textarea {
     width: 100%;
   }
 
+  .date {
+    margin-left: 35px;
+  }
   .dateBox {
     width: 230px;
   }
 
-  .datePicker{
+  .datePicker {
     width: 100%;
-  
-}
-.btnBox {
-  padding-right: 10px;
-}
-.addBtn {
-  width: 40%;
-}
+  }
+  .btnBox {
+    padding: 0 35px;
+  }
+  .addBtn {
+    width: 40%;
+  }
 
-.resetBtn {
-  width: 30%;
-}
+  .resetBtn {
+    width: 30%;
+  }
 }
