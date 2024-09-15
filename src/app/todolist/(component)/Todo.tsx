@@ -4,20 +4,18 @@ import useTodoStore from "@/store/formdata";
 import style from "./todo.module.css";
 import type { Todo } from "@/model/store";
 
-type Props = {
+interface Props {
   todoList: Todo[];
-};
+}
 
 export default function Todo({ todoList }: Props) {
   const { removeTodo, completedTodo } = useTodoStore();
 
   const toggleTodo = (id: number) => {
     completedTodo(id);
-    console.log("Completed Todo ID:", id);
-    console.log("Updated Todo List:", todoList); // 상태 변경 후의 목록 출력
   };
 
-  const sortedTodoList = todoList?.slice().sort((a, b) => {
+  const sortedTodoList = todoList.slice().sort((a, b): number => {
     // 우선적으로 완료되지 않은 항목이 위에 오도록 정렬
     if (a.completed !== b.completed) {
       return a.completed ? 1 : -1;
@@ -31,7 +29,7 @@ export default function Todo({ todoList }: Props) {
 
   return (
     <ul>
-      {sortedTodoList?.map((todo) => (
+      {sortedTodoList.map((todo) => (
         <li
           key={todo.id}
           className={todo.completed ? style.completedBox : style.todoBox}
@@ -39,7 +37,7 @@ export default function Todo({ todoList }: Props) {
           <div className={style.contentBox} onClick={() => toggleTodo(todo.id)}>
             <div className={style.content}>{todo.content}</div>
             <div className={style.date}>
-              {todo.date} {todo.date ? "종료" : ""}{" "}
+              {todo.date ? `${todo.date} 종료` : ""}
             </div>
           </div>
           <div>

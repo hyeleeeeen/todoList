@@ -9,15 +9,17 @@ import type { Todo } from "@/model/store";
 export default function HomeComponent() {
   const { todoList } = useTodoStore();
 
-  const today: string = new Date().toISOString().split("T")[0];
-  const filteredTodo: Todo[] = todoList.filter((todo) => todo.date === today);
+  const today = new Date().toISOString().split("T")[0];
+  const filteredTodo: Todo[] = todoList.filter(
+    (todo: Todo) => todo.date === today
+  );
 
   return (
     <main className={style.main}>
       <div className={style.container}>
         <h1>오늘의 할일</h1>
         <div className={style.todoBox}>
-          {filteredTodo.length != 0 ? (
+          {filteredTodo.length !== 0 ? (
             filteredTodo.map((todo) => (
               <div key={todo.id} className={style.todo}>
                 <RiCalendarTodoFill />
