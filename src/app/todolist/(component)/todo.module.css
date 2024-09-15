@@ -1,6 +1,10 @@
+.container {
+  width: 90%;
+}
+
 .todoBox {
   font-size: 2rem;
-  width: 1100px;
+  width: 100%;
   border-bottom: 5.5px dotted rgb(201, 201, 201);
   display: flex;
   justify-content: space-between;
@@ -9,47 +13,82 @@
 }
 
 .completedBox {
-    font-size: 2rem;
-    width: 1100px;
-    border-bottom: 5.5px dotted rgb(201, 201, 201);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0.3;
+  font-size: 2rem;
+  width: 100%;
+  border-bottom: 5.5px dotted rgb(201, 201, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.3;
 }
 
 .contentBox {
-    min-width: 900px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 1;
-    padding-left: 10px;
-    padding-top: 15px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 1;
+  padding-left: 10px;
+  padding-top: 15px;
 }
 
 .contentBox:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .content {
-    min-width: 500px;
+  width: 70%;
 }
 
 .date {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .deleteBtn {
-    border:none;
-    opacity: 1;
-    width: 40px;
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
+  border: none;
+  opacity: 1;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: white;
 }
 
 .deleteBtn:hover {
-    opacity: 0.7;
+  opacity: 0.7;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: 100%;
+  }
+  .todoBox {
+    font-size: 1.2rem;
+  }
+
+  .completedBox {
+    font-size: 1.2rem;
+  }
+
+  .content {
+    min-width: 50%;
+  }
+
+  .date {
+    font-size: 0.9rem;
+  }
+
+  .deleteBtn {
+    width: 20px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .todoBox {
+    font-size: 1.1rem;
+  }
+  .date {
+    font-size: 0.8rem;
+  }
 }
