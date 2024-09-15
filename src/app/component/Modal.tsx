@@ -1,18 +1,29 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import "regenerator-runtime/runtime";
 import style from "./addTodoModal.module.css";
 import ReactTextareaAutosize from "react-textarea-autosize";
-import { ChangeEventHandler, FormEventHandler, useState } from "react";
+import {
+  ChangeEventHandler,
+  FormEventHandler,
+  useEffect,
+  useState,
+} from "react";
 import useTodoStore from "@/store/formdata";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FcCalendar } from "react-icons/fc";
+import { RiSpeakFill } from "react-icons/ri";
+import { FaRegStopCircle } from "react-icons/fa";
+import useSpeechApi from "../todolist/_lib/useSpeechApi";
 
 export default function AddTodoModal() {
   const { addTodo } = useTodoStore();
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState<string>("");
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const { transcript, listening, toggleListening, resetTranscript } =
+    useSpeechApi();
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setContent(e.target.value);
@@ -22,7 +33,7 @@ export default function AddTodoModal() {
     setSelectedDate(date);
   };
 
-  const getFormattedDate = (date: Date | null) => {
+  const getFormattedDate = (date: Date | null): string | null => {
     if (!date) return null;
     const offset = new Date().getTimezoneOffset() * 60000; // 기본값이 영국표준시여서 편차 계산
     const adjustedDate = new Date(date.getTime() - offset); // 선택한 날짜와 편차 빼주기
@@ -40,6 +51,7 @@ export default function AddTodoModal() {
     addTodo(newTodo);
     setContent("");
     setSelectedDate(null);
+    resetTranscript();
   };
   const router = useRouter();
   const onClickBack = () => {
@@ -49,7 +61,14 @@ export default function AddTodoModal() {
   const onClickReset = () => {
     setContent("");
     setSelectedDate(null);
+    resetTranscript();
   };
+
+  useEffect(() => {
+    if (transcript) {
+      setContent(transcript);
+    }
+  }, [transcript]);
 
   return (
     <div className={style.modalBackground}>
@@ -62,7 +81,7 @@ export default function AddTodoModal() {
         <form onSubmit={onSubmit} className={style.form}>
           <div className={style.input}>
             <label htmlFor="todo">할일 추가하기</label>
-            <div className={style.inputBox}>
+            <div className={style.gg}>
               <ReactTextareaAutosize
                 onChange={onChange}
                 value={content}
@@ -102,7 +121,19 @@ export default function AddTodoModal() {
             >
               reset
             </button>
+            {listening ? (
+              <FaRegStopCircle
+                className={style.listeningIcon}
+                onClick={toggleListening}
+              />
+            ) : (
+              <RiSpeakFill
+                className={style.speakIcon}
+                onClick={toggleListening}
+              />
+            )}
           </div>
+          {listening && <p>Listening...</p>} {/* 음성 인식 중일 때 피드백 */}
         </form>
       </div>
     </div>
